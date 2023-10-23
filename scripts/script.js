@@ -1,15 +1,19 @@
+const output = document.querySelector('#output');
 let inputBish = 3;
 let inputBosh = 4;
 let inputEnd = 100;
 
 
-
-console.log(BishBosh(inputBish, inputBosh, inputEnd))
+const biscBosh = BishBosh(inputBish, inputBosh, inputEnd)
+for (let value of biscBosh) {
+    console.log(value);
+    output.innerHTML += value + ', ';
+}
 
 
 
 function BishBosh(bish, bosh, end) {
-    let result = [];
+    const result = [];
     let temp;
 
     for (let i = 1; i <= +end; i++) {
@@ -17,22 +21,22 @@ function BishBosh(bish, bosh, end) {
         temp = '';
 
         if ((i % +bish) === 0) {
-            temp += 'Bish'
+            temp += 'Bish';
         }
 
         if ((i % +bish) === 0 && (i % +bosh) === 0) {
-            temp += '-'
+            temp += '-';
         }
 
         if ((i % +bosh) === 0) {
-            temp += 'Bosh'
+            temp += 'Bosh';
         }
 
         if (temp == '') {
-            temp = i
+            temp = i.toString(10);
         }
 
-        result.push(temp)
+        result.push(temp);
     }
     return result;
 }
